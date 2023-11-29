@@ -5,7 +5,8 @@ export default defineConfig({
     setupNodeEvents(on, config) {
     },
      baseUrl: 'http://localhost:4200',
-     specPattern: 'cypress/e2e/**/*.spec.{js,jsx,ts,tsx}'
+     specPattern: 'cypress/e2e/**/*.spec.{js,jsx,ts,tsx}',
+     "supportFile": false
     },
     screenshotOnRunFailure: true,
     video: true, 
