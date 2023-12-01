@@ -6,9 +6,10 @@ describe('Product Details section check', () => {
      })
      
      it('text check', ()=> {
-        cy.get('nb-accordion-item-header').contains("Product Details")
-        cy.get('nb-accordion-item-body').should('be.not.visible')
+
+        cy.get('nb-accordion-item-header').eq(0).should('have.text', ' Product Details ')
+        cy.get('div.item-body').eq(0).should('be.not.visible')
         cy.get('nb-card-body .appearance-filled').click()
-        cy.get('nb-accordion-item-body').should('be.visible')
+        cy.get('div.item-body').eq(0).should('be.visible')
      });
   })
