@@ -1,6 +1,6 @@
 /// <reference types="cypress"/>
 
-import moment from '../pages/moment/moment.js'
+import moment from "moment"
 import { DatePickerPage } from '../pages/DatePicker.page.js'
 
 
