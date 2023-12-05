@@ -9,7 +9,7 @@ describe('Forgot password page check', () => {
     it('email input validation check', () => { 
         forgotPasswordPage.open()
         forgotPasswordPage.elements.emailInput().type('testmail.com').blur()
-        forgotPasswordPage.elements.emailValidationMessage().should('be.visible')
+        forgotPasswordPage.elements.emailValidationMessage().should('have.text', ' Email should be the real one! ')
       })
 
     it('"Request password" button check', () => { 

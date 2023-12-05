@@ -13,13 +13,13 @@ describe('Login form test', () => {
         registerPage.elements.emailInput().click().type('testmail.com')
         registerPage.elements.passwordInput().click().type('111')
         registerPage.elements.repeatPassword().click().blur()
-        registerPage.elements.fullNamelValidationMessage().should('be.visible')
-        registerPage.elements.emailValidationMessage().should('be.visible')
-        registerPage.elements.passwordValidationMessage().should('be.visible')
-        registerPage.elements.repeatPasswordValidationMessage().should('be.visible')
+        registerPage.elements.fullNamelValidationMessage().should('have.text', ' Full name should contains from 4 to 50 characters ')
+        registerPage.elements.emailValidationMessage().should('have.text', ' Email should be the real one! ')
+        registerPage.elements.passwordValidationMessage().should('have.text', ' Password should contain from 4 to 50 characters ')
+        registerPage.elements.repeatPasswordValidationMessage().should('have.text', ' Password confirmation is required! ')
       })
 
-    it.only('Successful registration check', () => { 
+    it('Successful registration check', () => { 
         registerPage.open()
         registerPage.elements.fulleNameInput().click().type('Test test')
         registerPage.elements.emailInput().click().type('test@mail.com')

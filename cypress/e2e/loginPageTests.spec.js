@@ -9,10 +9,10 @@ describe('Login form test', () => {
 
     it('inputs validation check', () => { 
         loginPage.open()
-        loginPage.elements.emailInput().click().type('testgmail.comm')
+        loginPage.elements.emailInput().type('testgmail.comm')
         loginPage.elements.passwordInput().click().type('12').blur()
-        loginPage.elements.emailValidationMessage().should('be.visible')
-        loginPage.elements.passwordValidationMessage().should('be.visible')
+        loginPage.elements.emailValidationMessage().should('have.text', ' Email should be the real one! ')
+        loginPage.elements.passwordValidationMessage().should('have.text', ' Password should contain from 4 to 50 characters ')
       })
 
     it('Successfull login check', () => { 
