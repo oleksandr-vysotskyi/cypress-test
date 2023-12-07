@@ -39,3 +39,9 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+#reports & videos
+mochawesome-report
+cypress/results
+cypress/merged-report
+videos
