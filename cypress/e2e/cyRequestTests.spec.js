@@ -22,7 +22,9 @@ describe('api tests', () => {
   
     it('PUT check', () => {
       cy.request('PUT', 'https://jsonplaceholder.typicode.com/posts/1', {
-        title: 'test'
+        title: 'test',
+        body: 'body',
+        userId: 2,
       }).then(resp => {
         expect(resp.status).to.eq(200);
       });
