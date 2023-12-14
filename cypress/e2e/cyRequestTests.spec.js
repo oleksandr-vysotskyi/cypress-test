@@ -43,7 +43,7 @@ describe('api tests', () => {
     it('DELETE check', () => {
       cy.request('DELETE','https://jsonplaceholder.typicode.com/posts/101').then(resp => {
           expect(resp.status).to.eq(200);
-          expect(resp).to.have.property('duration');
+          expect(resp.duration).lessThan(200);
         });
     });
   });
