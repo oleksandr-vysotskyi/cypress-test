@@ -22,6 +22,9 @@ jobs:
     - name: Run Server & Test
       run: npm run cy:run:server
 
+    - name: Run Cypress Tests
+      uses: cypress-io/github-action@v6
+
     - name: Create report
       if: success() || failure()
       run: npm run report:all
