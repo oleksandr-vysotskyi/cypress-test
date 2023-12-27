@@ -9,7 +9,7 @@ on:
     types: [opened, edited, reopened]
 
 env:
-  CYPRESS_RECORD_KEY${{secrets.CYPRESS_RECORD_KEY}}
+  CYPRESS_RECORD_KEY: ${{secrets.CYPRESS_RECORD_KEY}}
 
 jobs:
   cypress_run_1:
