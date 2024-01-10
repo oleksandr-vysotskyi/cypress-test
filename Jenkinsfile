@@ -22,7 +22,7 @@ pipeline{
         }
          stage("Run tests"){
             steps{
-                sh 'npm run cy:run:server'
+                sh 'npm run cy:run:server -- --verbose'
             }
         }
     }
