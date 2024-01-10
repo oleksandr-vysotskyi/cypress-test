@@ -10,6 +10,11 @@ pipeline{
     }
 
     stages{
+        stage("Clean Cache") {
+            steps {
+                sh 'npm cache clean --force'
+            }
+        }
         stage("Install dependencies"){
             steps{
                 sh 'npm install --force'
