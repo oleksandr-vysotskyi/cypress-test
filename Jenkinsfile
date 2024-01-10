@@ -17,12 +17,7 @@ pipeline{
         }
          stage("Run tests"){
             steps{
-                sh 'npm run start'
-            }
-        }
-        stage("Run tests"){
-            steps{
-                sh 'npm run cy:run'
+                sh 'npm run start && npm run cy:run'
             }
         }
     }
