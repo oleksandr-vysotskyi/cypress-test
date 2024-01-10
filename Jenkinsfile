@@ -15,14 +15,9 @@ pipeline{
                 sh 'npm install --force'
             }
         }
-        stage("Run server"){
+        stage("Run server & tests"){
             steps{
-                sh 'npm run start'
-            }
-        }
-        stage("Run tests"){
-            steps{
-                sh 'npx cypress run'
+                sh 'npm run cy:run:server'
             }
         }
     }
