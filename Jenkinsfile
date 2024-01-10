@@ -5,31 +5,51 @@ pipeline{
         }
     }
 
-    environment {
+   environment {
         HOME = "${env.WORKSPACE}"
     }
 
-    stages{
-        stage("Install dependencies"){
-            steps{
-                sh 'npm install --force'
+    stages {
+        stage('Install dependencies') {
+            steps {
+                script {
+                    sh 'npm install --force'
+                }
             }
         }
-         stage("Run tests"){
-            steps{
-                sh 'npm run cy:run:server'
+
+        stage('Run tests') {
+            parallel {
+                stage('Test Set 1') {
+                    steps {
+                        script {
+                            sh 'npm run cy:run:server -- --config-file config1.json'
+                        }
+                    }
+                }
+
+                stage('Test Set 2') {
+                    steps {
+                        script {
+                            sh 'npm run cy:run:server -- --config-file config2.json'
+                        }
+                    }
+                }
             }
         }
     }
-    post{
-        always{
-            sh 'npm run report:all'
+
+    post {
+        always {
+            script {
+                sh 'npm run report:all'
+            }
         }
-        success{
-            echo "========pipeline executed successfully ========"
+        success {
+            echo "========Pipeline executed successfully ========"
         }
-        failure{
-            echo "========pipeline execution failed========"
+        failure {
+            echo "========Pipeline execution failed========"
         }
     }
 }
