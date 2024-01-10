@@ -20,13 +20,13 @@ pipeline {
             parallel {
                 stage("Test Set 1") {
                     steps {
-                        sh 'npm run cy:run:server -- --config-file config1.json'
+                        sh 'npm run cy:run:server'
                     }
                 }
 
                 stage("Test Set 2") {
                     steps {
-                        sh 'npm run cy:run:server -- --config-file config2.json'
+                        sh 'npm run cy:run:server'
                     }
                 }
             }
